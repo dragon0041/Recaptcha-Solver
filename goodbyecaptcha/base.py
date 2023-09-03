@@ -24,13 +24,17 @@ from goodbyecaptcha.util import patch_pyppeteer, get_event_loop, load_file, get_
 if len(logging.root.handlers) == 0:
     logging.basicConfig(format="%(asctime)s %(message)s")
 
+import yaml
 try:
-    import yaml
+    from yaml import CLoader as Loader, CDumper as Dumper
+except ImportError:
+    from yaml import Loader, Dumper
 
+try:
     yaml.warnings({'YAMLLoadWarning': False})
 
     with open("goodbyecaptcha.yaml") as f:
-        settings = yaml.load(f)
+        settings = yaml.load(f, Loader)
 except FileNotFoundError:
     logging.error(
         "Solver can't run without a configuration file!\n"
