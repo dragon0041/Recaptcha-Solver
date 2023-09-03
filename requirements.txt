@@ -39,6 +39,6 @@ SpeechRecognition
 tqdm
 urllib3
 user-agent
-websockets
+websockets>=8.1, <9.0
 wrapt
 yarl
