@@ -19,7 +19,7 @@ import pocketsphinx
 import requests
 import speech_recognition as sr
 import websockets
-from pocketsphinx.pocketsphinx import Decoder
+from pocketsphinx import Decoder
 from pydub import AudioSegment
 
 from goodbyecaptcha import util
